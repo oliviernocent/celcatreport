@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Olivier Nocent">
+  <title>Rapport CELCAT</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <style>
+    .progress-wrapper {
+      position: relative;
+    }
+
+    .progress-value {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: calc(1rem / 1.5);
+      line-height: 1rem;
+      font-weight: bold;
+    }
+
+    .progress.is-small+.progress-value {
+      font-size: calc(0.75rem / 1.5);
+      line-height: 0.75rem;
+    }
+
+    .progress.is-medium+.progress-value {
+      font-size: calc(1.25rem / 1.5);
+      line-height: 1.25rem;
+    }
+
+    .progress.is-large+.progress-value {
+      font-size: calc(1.5rem / 1.5);
+      line-height: 1.5rem;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/e97537c6a1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+
+<body>
+  <a href="/">
+    <section class="hero is-primary mb-5">
+      <div class="container">
+        <div class="hero-body">
+          <p class="title">Rapport d'extraction CELCAT</p>
+          <p class="subtitle">Vérification de la réalisation des heures maquette</p>
+        </div>
+      </div>
+    </section>
+  </a>
+
+  <div class="container">
+    <section class="section box">
+      <h2 class="title">Étape 1</h2>
+      <h3 class="subtitle">Choix de la formation</h3>
+
+      <div class="select">
+        <select id="courseInput">
+          <option value="" selected>Choisissez une année de formation</option>
+          <option value="data/L1.csv">L1 STAPS</option>
+          <option value="data/L2-EM.csv">L2 STAPS EM</option>
+          <option value="data/L2-ESPM.csv">L2 STAPS ESPM</option>
+          <option value="data/L2-MS.csv">L2 STAPS MS</option>
+          <option value="data/L3-EM.csv">L3 STAPS EM</option>
+          <option value="data/L3-ESPM.csv">L3 STAPS ESPM</option>
+          <option value="data/L3-MS.csv">L3 STAPS MS</option>
+        </select>
+      </div>
+
+    </section>
+
+    <section class="section box">
+      <h2 class="title">Étape 2</h2>
+      <h3 class="subtitle">Dépôt de l'extraction CELCAT</h3>
+
+      <div class="content">
+        <p>Le fichier d'extraction au format CSV doit contenir <em>a minima</em> les informations suivantes</p>
+        <ul>
+          <li><code>code matières</code></li>
+          <li><code>Catégorie</code></li>
+          <li><code>Enseignants</code></li>
+          <li><code>Suspendu</code></li>
+          <li><code>Début  du cours</code></li>
+          <li><code>Fin du cours</code></li>
+          <li><code>Nombre de semaine</code></li>
+        </ul>
+      </div>
+
+      <div class="file is-boxed">
+        <label class="file-label">
+          <input id="timetableInput" class="file-input" type="file" name="resume">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">Déposez votre fichier</span>
+          </span>
+        </label>
+      </div>
+
+      <div id="timetableAlert" class="notification is-danger is-hidden">
+        Format de fichier invalide.
+      </div>
+    </section>
+    </section>
+
+    <section class="section box">
+      <h2 class="title">Étape 3</h2>
+      <h3 class="subtitle">Génération du rapport</h3>
+
+      <button id="process" class="button is-responsive is-primary">Générer</button>
+    </section>
+
+    <div id="stats">
+    </div>
+  </div>
+
+  <footer class="footer mt-5">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://cv.hal.science/oliviernocent" target="_blank">Olivier Nocent</a> &copy; 2025
+        <a href="https://github.com/oliviernocent/celcatreport" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    let courseData, timetableData;
+    let report = "";
+
+    function displayUploadSucceeded(buttonId) {
+      document.querySelector(`#${buttonId} + span > span`).classList.add("has-text-success");
+      document.querySelector(`#${buttonId} + span > span i`).classList.remove("fa-upload");
+      document.querySelector(`#${buttonId} + span > span i`).classList.add("fa-check-square");
+      document.querySelector(`#${buttonId} + span .file-label`).textContent = "Fichier déposé";
+      timetableAlert.classList.add("is-hidden");
+    }
+
+    function resetUploadDisplay(buttonId) {
+      document.querySelector(`#${buttonId} + span > span`).classList.remove("has-text-success");
+      document.querySelector(`#${buttonId} + span > span i`).classList.remove("fa-check-square");
+      document.querySelector(`#${buttonId} + span > span i`).classList.add("fa-upload");
+      document.querySelector(`#${buttonId} + span .file-label`).textContent = "Déposez votre fichier";
+      timetableAlert.classList.add("is-hidden");
+    }
+
+    courseInput.addEventListener("change", (event) => {
+      if (event.target.value != "") {
+        Papa.parse(event.target.value, {
+          download: true,
+          encoding: "UTF-8",
+          header: true,
+          delimiter: ";",
+          complete: function (results) {
+            courseData = results.data;
+          },
+          error: function (error) {
+            console.error('Error parsing CSV:', error);
+          }
+        });
+      }
+    });
+
+    timetableInput.addEventListener("change", (event) => {
+      if (event.target.files[0] != "") {
+        Papa.parse(event.target.files[0], {
+          download: true,
+          encoding: "ISO-8859-1",
+          header: true,
+          delimiter: ";",
+          complete: function (results) {
+            displayUploadSucceeded("timetableInput");
+            timetableData = results.data;
+            removeDuplicateEvents();
+          },
+          error: function (error) {
+            timetableAlert.classList.remove("is-hidden");
+          }
+        });
+      }
+    });
+
+    function removeDuplicateEvents() {
+      let knownIds = [];
+      let i = 0;
+      while (i < timetableData.length) {
+        if (knownIds.find((element) => element == timetableData[i]["Id event"]) == undefined) {
+          knownIds.push(timetableData[i++]["Id event"]);
+        }
+        else
+          timetableData.splice(i, 1);
+      }
+    }
+
+    function timeStringToMinutes(str) {
+      let hours = parseInt(str.substring(0, 3));
+      let minutes = parseInt(str.substring(4));
+
+      return hours * 60 + minutes;
+    }
+
+    function findEventsBy(courseId, courseCategory) {
+      let result = {
+        "total": 0,
+        "teacher": {}
+      };
+
+      for (let event of timetableData) {
+        if ((event["code matières"] == courseId) && (event["Catégorie"] == courseCategory) && (event["Supendu"] == "N")) {
+          let begin = timeStringToMinutes(event["Début  du cours"]);
+          let end = timeStringToMinutes(event["Fin du cours"]);
+          let duration = (end - begin) * parseInt(event["Nombre de semaine"]) / 60;
+
+          result.total += duration;
+          if (result.teacher[event["Enseignants"]] !== undefined)
+            result.teacher[event["Enseignants"]] += duration;
+          else
+            result.teacher[event["Enseignants"]] = duration;
+        }
+      }
+
+      return result;
+    }
+
+    function addStats(courseId, courseCategory, total) {
+      let courseStats = findEventsBy(courseId, courseCategory);
+      
+      let color;
+      if (courseStats.total == total)
+        color = "is-success";
+      else 
+        if (courseStats.total < total / 2)
+          color = "is-danger";
+        else
+          color = "is-warning";
+      
+      report += `
+        <div class="progress-wrapper">
+          <progress class="progress is-large ${color}" value="${courseStats.total}" max="${total}">
+          </progress>
+          <p class="progress-value has-text-dark">${courseCategory.substring(1,3)} (${courseStats.total}/${total})</p>
+        </div>
+      `;
+
+      if (courseStats.total > 0) {
+        report += `
+        <table class="table is-striped">
+          <thead>
+            <tr>
+              <th>Enseignant</th>
+              <th>Volume horaire</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        for (const name in courseStats.teacher)
+          report += `
+            <tr>
+              <td>${name}</td>
+              <td>${courseStats.teacher[name]}</td>
+            </tr>
+          `;
+        
+        report += `
+          </tbody>
+        </table>
+        `;
+      }
+    }
+
+    function computeStats(course) {
+      report += `
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">EC${course["Code EC"]} ${course["Libellé"]}</p>
+      </header>
+      <div class="card-content">
+      `;
+
+      if (parseInt(course["Heures CM"]) != 0)
+        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]))
+
+      if (parseInt(course["Heures TD"]) != 0)
+        addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]))        
+
+      if (parseInt(course["Heures TP"]) != 0)
+        addStats(course["Code Apogée"], "[TP]", parseInt(course["Heures TP"]) * parseInt(course["Groupes TP"]))
+
+      report += `
+      </div>
+    </div>
+      `;
+    }
+
+    process.addEventListener("click", () => {
+      if ((courseData !== undefined) && (timetableData !== undefined)) {
+        for (let course of courseData)
+          computeStats(course);
+      }
+      stats.innerHTML = report;
+    });
+  </script>
+</body>
+
+</html>
