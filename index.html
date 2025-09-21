@@ -53,79 +53,86 @@
   </a>
 
   <div class="container">
-    <section class="section box">
-      <h2 class="title">Étape 1</h2>
-      <h3 class="subtitle">Choix de la formation</h3>
+    <div class="grid">
+      <div class="cell">
+        <section class="section box">
+          <h2 class="title">Étape 1</h2>
+          <h3 class="subtitle">Dépôt de l'extraction CELCAT au format CSV</h3>
 
-      <div class="select">
-        <select id="courseInput">
-          <option value="" selected>Choisissez une année de formation</option>
-          <option value="data/DEUST.csv">DEUST AGAPSC</option>
-          <option value="data/LP.csv">LP AGOAPS</option>
-          <option value="data/L1.csv">L1 STAPS</option>
-          <option value="data/L2-EM.csv">L2 STAPS EM</option>
-          <option value="data/L2-ESPM.csv">L2 STAPS ESPM</option>
-          <option value="data/L2-MS.csv">L2 STAPS MS</option>
-          <option value="data/L3-EM.csv">L3 STAPS EM</option>
-          <option value="data/L3-ESPM.csv">L3 STAPS ESPM</option>
-          <option value="data/L3-MS.csv">L3 STAPS MS</option>
-          <option value="data/M1-IEAP-EMS.csv">M1 IEAP EMS</option>
-          <option value="data/M1-IEAP-ICDSP.csv">M1 IEAP ICDSP</option>
-          <option value="data/M2-IEAP-EMS.csv">M2 IEAP EMS</option>
-          <option value="data/M2-IEAP-ICDSP.csv">M2 IEAP ICDSP</option>
-          <option value="data/M1-MS-AES.csv">M1 MS AES</option>
-          <option value="data/M1-MS-DIS.csv">M1 MS DIS</option>
-          <option value="data/M2-MS-AES.csv">M2 MS AES</option>
-          <option value="data/M2-MS-DIS.csv">M2 MS DIS</option>
-        </select>
+          <!--
+          <div class="content">
+            <p>Le fichier d'extraction au format CSV doit contenir <em>a minima</em> les informations suivantes</p>
+            <ul>
+              <li><code>code matières</code></li>
+              <li><code>Catégorie</code></li>
+              <li><code>Enseignants</code></li>
+              <li><code>Suspendu</code></li>
+              <li><code>Début  du cours</code></li>
+              <li><code>Fin du cours</code></li>
+              <li><code>Nombre de semaine</code></li>
+            </ul>
+          </div>
+          -->
+
+          <div class="file is-boxed">
+            <label class="file-label">
+              <input id="timetableInput" class="file-input" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">Déposez votre fichier</span>
+              </span>
+            </label>
+          </div>
+
+          <div id="timetableAlert" class="notification is-danger is-hidden">
+            Format de fichier invalide.
+          </div>
+        </section>
       </div>
+      <div class="cell">
+        <section class="section box" style="min-height: 100%">
+          <h2 class="title">Étape 2</h2>
+          <h3 class="subtitle">Choix de la formation</h3>
 
-    </section>
-
-    <section class="section box">
-      <h2 class="title">Étape 2</h2>
-      <h3 class="subtitle">Dépôt de l'extraction CELCAT</h3>
-
-      <div class="content">
-        <p>Le fichier d'extraction au format CSV doit contenir <em>a minima</em> les informations suivantes</p>
-        <ul>
-          <li><code>code matières</code></li>
-          <li><code>Catégorie</code></li>
-          <li><code>Enseignants</code></li>
-          <li><code>Suspendu</code></li>
-          <li><code>Début  du cours</code></li>
-          <li><code>Fin du cours</code></li>
-          <li><code>Nombre de semaine</code></li>
-        </ul>
+          <div class="select">
+            <select id="courseInput">
+              <option value="" selected>Choisissez une année de formation</option>
+              <option value="data/DEUST.csv">DEUST AGAPSC</option>
+              <option value="data/LP.csv">LP AGOAPS</option>
+              <option value="data/L1.csv">L1 STAPS</option>
+              <option value="data/L2-EM.csv">L2 STAPS EM</option>
+              <option value="data/L2-ESPM.csv">L2 STAPS ESPM</option>
+              <option value="data/L2-MS.csv">L2 STAPS MS</option>
+              <option value="data/L3-EM.csv">L3 STAPS EM</option>
+              <option value="data/L3-ESPM.csv">L3 STAPS ESPM</option>
+              <option value="data/L3-MS.csv">L3 STAPS MS</option>
+              <option value="data/M1-IEAP-EMS.csv">M1 IEAP EMS</option>
+              <option value="data/M1-IEAP-ICDSP.csv">M1 IEAP ICDSP</option>
+              <option value="data/M2-IEAP-EMS.csv">M2 IEAP EMS</option>
+              <option value="data/M2-IEAP-ICDSP.csv">M2 IEAP ICDSP</option>
+              <option value="data/M1-MS-AES.csv">M1 MS AES</option>
+              <option value="data/M1-MS-DIS.csv">M1 MS DIS</option>
+              <option value="data/M2-MS-AES.csv">M2 MS AES</option>
+              <option value="data/M2-MS-DIS.csv">M2 MS DIS</option>
+            </select>
+          </div>
+        </section>
       </div>
+      <!--
+      <section class="section box">
+        <h2 class="title">Étape 3</h2>
+        <h3 class="subtitle">Génération du rapport</h3>
 
-      <div class="file is-boxed">
-        <label class="file-label">
-          <input id="timetableInput" class="file-input" type="file" name="resume">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
-            </span>
-            <span class="file-label">Déposez votre fichier</span>
-          </span>
-        </label>
-      </div>
-
-      <div id="timetableAlert" class="notification is-danger is-hidden">
-        Format de fichier invalide.
-      </div>
-    </section>
-    </section>
-
-    <section class="section box">
-      <h2 class="title">Étape 3</h2>
-      <h3 class="subtitle">Génération du rapport</h3>
-
-      <button id="process" class="button is-responsive is-primary">Générer</button>
-    </section>
+        <button id="process" class="button is-responsive is-primary">Générer</button>
+      </section>
+      -->
+    </div>
 
     <div id="stats">
     </div>
+
   </div>
 
   <footer class="footer mt-5">
@@ -168,6 +175,13 @@
           delimiter: ";",
           complete: function (results) {
             courseData = results.data;
+            report = "";
+            if (timetableData !== undefined) {
+              for (let course of courseData)
+                computeStats(course);
+            }
+            stats.innerHTML = report;
+
           },
           error: function (error) {
             console.error('Error parsing CSV:', error);
@@ -180,14 +194,14 @@
       if (event.target.files[0] != "") {
         Papa.parse(event.target.files[0], {
           download: true,
-          /*encoding: "ISO-8859-1",*/
-          encoding: "UTF-8",
+          encoding: "ISO-8859-1",
           header: true,
           delimiter: ";",
           complete: function (results) {
             displayUploadSucceeded("timetableInput");
             timetableData = results.data;
             removeDuplicateEvents();
+            timetableData.sort(compareEvents);
           },
           error: function (error) {
             timetableAlert.classList.remove("is-hidden");
@@ -206,6 +220,20 @@
         else
           timetableData.splice(i, 1);
       }
+    }
+
+    function getTimestamp(date, hour) {
+      let [day, month, year] = date.substring(0, 10).split(/-|\//);
+      let timestamp = new Date(year, month - 1, day).getTime() / 1000;
+
+      return timestamp + parseInt(hour.substring(0,2)) * 3600;
+    }
+
+    function compareEvents(event1, event2) {
+      if ((event1.date !== undefined) && (event2.date !== undefined)) 
+        return getTimestamp(event1.date, event1["Début  du cours"]) - getTimestamp(event2.date, event2["Début  du cours"]); 
+      else
+        return 0;
     }
 
     function timeStringToMinutes(str) {
@@ -228,10 +256,15 @@
           let duration = (end - begin) * parseInt(event["Nombre de semaine"]) / 60;
 
           result.total += duration;
-          if (result.teacher[event["Enseignants"]] !== undefined)
-            result.teacher[event["Enseignants"]] += duration;
-          else
-            result.teacher[event["Enseignants"]] = duration;
+
+          if (result.teacher[event["Enseignants"]] == undefined)
+            result.teacher[event["Enseignants"]] = {
+              "duration": 0,
+              "details": ""
+            };
+
+          result.teacher[event["Enseignants"]].duration += duration;
+          result.teacher[event["Enseignants"]].details += `[${event["Semaine"]}] ${event["jour"]} ${event["date"]} ${event["Début  du cours"]}-${event["Fin du cours"]}<br>`;
         }
       }
 
@@ -240,21 +273,21 @@
 
     function addStats(courseId, courseCategory, total) {
       let courseStats = findEventsBy(courseId, courseCategory);
-      
+
       let color;
       if (courseStats.total == total)
         color = "is-success";
-      else 
+      else
         if (courseStats.total < total / 2)
           color = "is-danger";
         else
           color = "is-warning";
-      
+
       report += `
         <div class="progress-wrapper">
           <progress class="progress is-large ${color}" value="${courseStats.total}" max="${total}">
           </progress>
-          <p class="progress-value has-text-dark">${courseCategory.substring(1,3)} (${courseStats.total}/${total})</p>
+          <p class="progress-value has-text-dark">${courseCategory.substring(1, 3)} (${courseStats.total}/${total})</p>
         </div>
       `;
 
@@ -273,11 +306,16 @@
         for (const name in courseStats.teacher)
           report += `
             <tr>
-              <td>${name}</td>
-              <td>${courseStats.teacher[name]}</td>
+              <td>
+                <details>
+                  <summary>${name}</summary>
+                  ${courseStats.teacher[name].details}
+                </details>
+              </td>
+              <td>${courseStats.teacher[name].duration}</td>
             </tr>
           `;
-        
+
         report += `
           </tbody>
         </table>
@@ -298,7 +336,7 @@
         addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]))
 
       if (parseInt(course["Heures TD"]) != 0)
-        addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]))        
+        addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]))
 
       if (parseInt(course["Heures TP"]) != 0)
         addStats(course["Code Apogée"], "[TP]", parseInt(course["Heures TP"]) * parseInt(course["Groupes TP"]))
@@ -309,6 +347,7 @@
       `;
     }
 
+    /*
     process.addEventListener("click", () => {
       if ((courseData !== undefined) && (timetableData !== undefined)) {
         for (let course of courseData)
@@ -316,6 +355,7 @@
       }
       stats.innerHTML = report;
     });
+    */
   </script>
 </body>
 
