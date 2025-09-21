@@ -264,7 +264,7 @@
             };
 
           result.teacher[event["Enseignants"]].duration += duration;
-          result.teacher[event["Enseignants"]].details += `[${event["Semaine"]}] ${event["jour"]} ${event["date"]} ${event["Début  du cours"]}-${event["Fin du cours"]}<br>`;
+          result.teacher[event["Enseignants"]].details += `[${event["Semaine"]}] ${event["jour"].substring(0, 3)}. ${event["date"]} ${event["Début  du cours"]}-${event["Fin du cours"]}<br>`;
         }
       }
 
@@ -309,7 +309,9 @@
               <td>
                 <details>
                   <summary>${name}</summary>
-                  ${courseStats.teacher[name].details}
+                  <p class="content" style="font-family: monospace">
+                    ${courseStats.teacher[name].details}
+                  </p>
                 </details>
               </td>
               <td>${courseStats.teacher[name].duration}</td>
