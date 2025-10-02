@@ -237,8 +237,8 @@
     }
 
     function timeStringToMinutes(str) {
-      let hours = parseInt(str.substring(0, 3));
-      let minutes = parseInt(str.substring(4));
+      let hours = parseInt(str.substring(0, 2));
+      let minutes = parseInt(str.substring(3));
 
       return hours * 60 + minutes;
     }
