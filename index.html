@@ -7,6 +7,10 @@
   <title>Rapport CELCAT</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
   <style>
+    .progress.is-over {
+      --bulma-progress-value-background-color: rgb(188, 82, 210);
+    }
+
     .progress-wrapper {
       position: relative;
     }
@@ -226,12 +230,12 @@
       let [day, month, year] = date.substring(0, 10).split(/-|\//);
       let timestamp = new Date(year, month - 1, day).getTime() / 1000;
 
-      return timestamp + parseInt(hour.substring(0,2)) * 3600;
+      return timestamp + parseInt(hour.substring(0, 2)) * 3600;
     }
 
     function compareEvents(event1, event2) {
-      if ((event1.date !== undefined) && (event2.date !== undefined)) 
-        return getTimestamp(event1.date, event1["Début  du cours"]) - getTimestamp(event2.date, event2["Début  du cours"]); 
+      if ((event1.date !== undefined) && (event2.date !== undefined))
+        return getTimestamp(event1.date, event1["Début  du cours"]) - getTimestamp(event2.date, event2["Début  du cours"]);
       else
         return 0;
     }
@@ -275,13 +279,18 @@
       let courseStats = findEventsBy(courseId, courseCategory);
 
       let color;
-      if (courseStats.total == total)
-        color = "is-success";
-      else
-        if (courseStats.total < total / 2)
-          color = "is-danger";
-        else
-          color = "is-warning";
+      if (courseStats.total > total)
+        color = "is-over";
+      else {
+        if (courseStats.total == total)
+          color = "is-success";
+        else {
+          if (courseStats.total < total / 2)
+            color = "is-danger";
+          else
+            color = "is-warning";
+        }
+      }
 
       report += `
         <div class="progress-wrapper">
