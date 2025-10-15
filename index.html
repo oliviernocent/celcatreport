@@ -344,7 +344,7 @@
       `;
 
       if (parseInt(course["Heures CM"]) != 0)
-        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]) * parseInt(course["Groupes CM"]));
+        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]) * parseFloat(course["Groupes CM"].replace(",", ".")));
 
       if (parseInt(course["Heures TD"]) != 0)
         addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]));
