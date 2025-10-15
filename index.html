@@ -218,8 +218,8 @@
       let knownIds = [];
       let i = 0;
       while (i < timetableData.length) {
-        if (knownIds.find((element) => element == timetableData[i]["Id event"]) == undefined) {
-          knownIds.push(timetableData[i++]["Id event"]);
+        if (knownIds.find((element) => (element.id == timetableData[i]["Id event"]) && (element.date == timetableData[i]["date"])) == undefined) {
+          knownIds.push({"id": timetableData[i]["Id event"], "date": timetableData[i++]["date"]});
         }
         else
           timetableData.splice(i, 1);
@@ -344,7 +344,7 @@
       `;
 
       if (parseInt(course["Heures CM"]) != 0)
-        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]))
+        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"] * parseInt(course["Groupes CM"]))
 
       if (parseInt(course["Heures TD"]) != 0)
         addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]))

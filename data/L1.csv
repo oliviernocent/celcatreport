@@ -1,13 +1,13 @@
-﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Heures TD;Groupes TD;Heures TP;Groupes TP
-ALGX111;111;Sciences de la vie appliquées aux APSA - Niveau 1;6;36;18;16;0;0
-ALGX121;121;Sciences humaines et sociales appliquées aux APSA - Niveau 1;6;36;18;16;0;0
-ALGX131;131;Sciences et technologies des APSA - Niveau 1;6;8;44;13;0;0
-ALGX141;141;Professionnalisation - Niveau 1;6;24;0;0;0;0
-ALGX151;151;Numérique - Niveau 1;2;0;10;16;0;0
-ALGX153;153;Méthodologie du travail universitaire - Niveau 1;2;6;10;16;0;0
-ALGX211;211;Sciences et technologies des APSA - Niveau 2;6;8;44;16;0;0
-ALGX221;221;Professionnalisation - Niveau 2;6;24;0;0;0;0
-ALGX231;231;Sciences humaines et sociales appliquées aux APSA - Niveau 2;6;36;18;13;0;0
-ALGX241;241;Sciences de la vie appliquées aux APSA - Niveau 2;6;36;18;13;0;0
-ALGX251;251;Numérique - Niveau 2;2;0;10;13;0;0
-ALGX253;253;Méthodologie du travail universitaire - Niveau 2;2;6;10;13;0;0
+﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Groupes CM;Heures TD;Groupes TD;Heures TP;Groupes TP
+ALGX111;111;Sciences de la vie appliquées aux APSA - Niveau 1;6;36;1;18;16;0;0
+ALGX121;121;Sciences humaines et sociales appliquées aux APSA - Niveau 1;6;36;1;18;16;0;0
+ALGX131;131;Sciences et technologies des APSA - Niveau 1;6;8;3,5;44;13;0;0
+ALGX141;141;Professionnalisation - Niveau 1;6;24;1;0;0;0;0
+ALGX151;151;Numérique - Niveau 1;2;0;1;10;16;0;0
+ALGX153;153;Méthodologie du travail universitaire - Niveau 1;2;6;1;10;16;0;0
+ALGX211;211;Sciences et technologies des APSA - Niveau 2;6;8;3,5;44;16;0;0
+ALGX221;221;Professionnalisation - Niveau 2;6;24;1;0;0;0;0
+ALGX231;231;Sciences humaines et sociales appliquées aux APSA - Niveau 2;6;36;1;18;13;0;0
+ALGX241;241;Sciences de la vie appliquées aux APSA - Niveau 2;6;36;1;18;13;0;0
+ALGX251;251;Numérique - Niveau 2;2;0;1;10;13;0;0
+ALGX253;253;Méthodologie du travail universitaire - Niveau 2;2;6;1;10;13;0;0

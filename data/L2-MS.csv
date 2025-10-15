@@ -1,15 +1,15 @@
-﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Heures TD;Groupes TD;Heures TP;Groupes TP
-ALG0311;311;Sciences de la vie appliquées aux APSA - Niveau 3;6;36;18;8;0;0
-ALG0321;321;Sciences humaines et sociales appliquées aux APSA - Niveau 3;6;36;18;8;0;0
-ALG0331;331;Sciences et technologies des APSA - Niveau 3;6;8;0;8;44;16
-ALG034C1;341;Management des organisations sportives;3;12;10;2;0;0
-ALG034C2;342;Enjeux sociétaux du management du sport;3;14;10;2;0;0
-ALG0351;351;Statistiques - Niveau 1;2;2;10;8;0;0
-ALG0352;352;Anglais - Niveau 3;2;0;14;8;0;0
-ALG0353;353;Préparation du stage;2;2;6;8;0;0
-ALG0411;411;Stage animation;6;2;6;8;0;0
-ALI0421;421; Sport en environnement managérial ;6;26;30;2;0;0
-ALG0431;431;Sciences et technologies des APSA - Niveau 4 ;6;8;0;8;44;16
-ALG044B1;441;Secteurs et dynamiques du management sportif;6;28;20;2;0;0
-ALG0451;451;Statistiques - Niveau 2;1,5;2;10;8;0;0
-ALG0452;452;Anglais - Niveau 4;1,5;0;14;8;0;0
+﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Groupes CM;Heures TD;Groupes TD;Heures TP;Groupes TP
+ALG0311;311;Sciences de la vie appliquées aux APSA - Niveau 3;6;36;1;18;8;0;0
+ALG0321;321;Sciences humaines et sociales appliquées aux APSA - Niveau 3;6;36;1;18;8;0;0
+ALG0331;331;Sciences et technologies des APSA - Niveau 3;6;8;3;0;8;44;16
+ALG034C1;341;Management des organisations sportives;3;12;1;10;2;0;0
+ALG034C2;342;Enjeux sociétaux du management du sport;3;14;1;10;2;0;0
+ALG0351;351;Statistiques - Niveau 1;2;2;1;10;8;0;0
+ALG0352;352;Anglais - Niveau 3;2;0;1;14;8;0;0
+ALG0353;353;Préparation du stage;2;2;1;6;8;0;0
+ALG0411;411;Stage animation;6;2;1;6;8;0;0
+ALI0421;421; Sport en environnement managérial ;6;26;1;30;2;0;0
+ALG0431;431;Sciences et technologies des APSA - Niveau 4 ;6;8;3;0;8;44;16
+ALG044B1;441;Secteurs et dynamiques du management sportif;6;28;1;20;2;0;0
+ALG0451;451;Statistiques - Niveau 2;1,5;2;1;10;8;0;0
+ALG0452;452;Anglais - Niveau 4;1,5;0;1;14;8;0;0
