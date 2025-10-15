@@ -344,13 +344,13 @@
       `;
 
       if (parseInt(course["Heures CM"]) != 0)
-        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"] * parseInt(course["Groupes CM"]))
+        addStats(course["Code Apogée"], "[CM]", parseInt(course["Heures CM"]) * parseInt(course["Groupes CM"]));
 
       if (parseInt(course["Heures TD"]) != 0)
-        addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]))
+        addStats(course["Code Apogée"], "[TD]", parseInt(course["Heures TD"]) * parseInt(course["Groupes TD"]));
 
       if (parseInt(course["Heures TP"]) != 0)
-        addStats(course["Code Apogée"], "[TP]", parseInt(course["Heures TP"]) * parseInt(course["Groupes TP"]))
+        addStats(course["Code Apogée"], "[TP]", parseInt(course["Heures TP"]) * parseInt(course["Groupes TP"]));
 
       report += `
       </div>
