@@ -1,21 +1,21 @@
-﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Heures TD;Groupes TD;Heures TP;Groupes TP
-APA1511Z;511;Cadre institutionnel du sport en France, approche sécuritaire et réglementaire;6;0;36;1;6;2
-APA1521Z;521;Gestion et direction d'une structure dédiée au sport et à l'activité physique;6;0;36;1;0;0
-APA1531Z;531;Expression, communication et numérique;3;0;30;1;0;0
-APA1541Z;541;Positionnement vis-à-vis du champ professionnel;10;0;42;1;28;2
-APA1551Z;551;Athlétisme : expertise théorique et pratique;5;0;57;1;0;0
-APA2551Z;551;Boxe : expertise théorique et pratique en boxe - Niveau 1;5;0;57;1;0;0
-APA2551B;551;Boxe-MMA : expertise théorique et pratique en boxe - Niveau 1;3;0;57;1;0;0
-APA2651Z;552;Boxe-MMA : expertise théorique et pratique en MMA - Niveau 1;2;0;57;1;0;0
-APA3551Z;551;Football : expertise théorique et pratique;5;0;57;1;0;0
-APA5551Z;551;Multisports : expertise théorique et pratique;5;0;67;1;0;0
-APA1611Z;611;Cadre institutionnel du sport en France, entrepreunariat ;6;0;28;1;0;0
-APA1621Z;621;Gestion et direction d'une structure dédiée au sport et à l'activité physique;6;0;38;1;6;2
-APA1631Z;631;Expression, communication et numérique ;3;0;28;1;0;0
-APA1641Z;641;Positionnement vis-à-vis du champ professionnel;10;0;32;1;48;1
-APA1651Z;651;Athlétisme : expertise théorique et pratique;5;0;60;1;0;0
-APA;651;Boxe : expertise théorique et pratique en boxe - Niveau 2;5;0;60;1;0;0
-APA2651B;651;Boxe-MMA : expertise théorique et pratique en boxe - Niveau 2;3;0;60;1;0;0
-APA2652B;652;Boxe-MMA : expertise théorique et pratique en MMA - Niveau 2;2;0;48;1;0;0
-APA3651Z;651;Football : expertise théorique et pratique;5;0;60;1;0;0
-APA5651Z;651;Multisports : expertise théorique et pratique;5;0;70;1;0;0
+﻿Code Apogée;Code EC;Libellé;ECTS;Heures CM;Groupes CM;Heures TD;Groupes TD;Heures TP;Groupes TP
+APA1511Z;511;Cadre institutionnel du sport en France, approche sécuritaire et réglementaire;6;0;1;36;1;6;1
+APA1521Z;521;Gestion et direction d'une structure dédiée au sport et à l'activité physique;6;0;1;36;1;0;0
+APA1531Z;531;Expression, communication et numérique;3;0;1;30;1;0;0
+APA1541Z;541;Positionnement vis-à-vis du champ professionnel;10;0;1;42;1;28;1
+APA1551Z;551;Athlétisme : expertise théorique et pratique;5;0;1;57;1;0;0
+APA2551Z;551;Boxe : expertise théorique et pratique en boxe - Niveau 1;5;0;1;57;1;0;0
+APA2551B;551;Boxe-MMA : expertise théorique et pratique en boxe - Niveau 1;3;0;1;57;1;0;0
+APA2651Z;552;Boxe-MMA : expertise théorique et pratique en MMA - Niveau 1;2;0;1;57;1;0;0
+APA3551Z;551;Football : expertise théorique et pratique;5;0;1;57;1;0;0
+APA5551Z;551;Multisports : expertise théorique et pratique;5;0;1;67;1;0;0
+APA1611Z;611;Cadre institutionnel du sport en France, entrepreunariat ;6;0;1;28;1;0;0
+APA1621Z;621;Gestion et direction d'une structure dédiée au sport et à l'activité physique;6;0;1;38;1;6;1
+APA1631Z;631;Expression, communication et numérique ;3;0;1;28;1;0;0
+APA1641Z;641;Positionnement vis-à-vis du champ professionnel;10;0;1;32;1;48;1
+APA1651Z;651;Athlétisme : expertise théorique et pratique;5;0;1;60;1;0;0
+APA;651;Boxe : expertise théorique et pratique en boxe - Niveau 2;5;0;1;60;1;0;0
+APA2651B;651;Boxe-MMA : expertise théorique et pratique en boxe - Niveau 2;3;0;1;60;1;0;0
+APA2661Z;652;Boxe-MMA : expertise théorique et pratique en MMA - Niveau 2;2;0;1;48;1;0;0
+APA3651Z;651;Football : expertise théorique et pratique;5;0;1;60;1;0;0
+APA5651Z;651;Multisports : expertise théorique et pratique;5;0;1;70;1;0;0
