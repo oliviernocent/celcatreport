@@ -218,8 +218,17 @@
       let knownIds = [];
       let i = 0;
       while (i < timetableData.length) {
-        if (knownIds.find((element) => (element.id == timetableData[i]["Id event"]) && (element.date == timetableData[i]["date"])) == undefined) {
-          knownIds.push({"id": timetableData[i]["Id event"], "date": timetableData[i++]["date"]});
+        if (knownIds.find((element) => (element.id == timetableData[i]["Id event"]) && 
+                                       (element.date == timetableData[i]["date"]) &&
+                                       (element["Début  du cours"] == timetableData[i]["Début  du cours"]) &&
+                                       (element["Fin du cours"] == timetableData[i]["Fin du cours"])
+                                      ) == undefined) {
+          knownIds.push({
+            "id": timetableData[i]["Id event"],
+            "date": timetableData[i]["date"],
+            "Début  du cours": timetableData[i]["Début  du cours"],
+            "Fin du cours": timetableData[i++]["Fin du cours"]
+          });
         }
         else
           timetableData.splice(i, 1);
