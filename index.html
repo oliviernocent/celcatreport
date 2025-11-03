@@ -263,7 +263,7 @@
       };
 
       for (let event of timetableData) {
-        if ((event["code matières"] == courseId) && (event["Catégorie"] == courseCategory) && (event["Supendu"] == "N")) {
+        if ((event["code matières"] !== undefined) && (event["code matières"].indexOf(courseId) != -1) && (event["Catégorie"] == courseCategory) && (event["Supendu"] == "N")) {
           let begin = timeStringToMinutes(event["Début  du cours"]);
           let end = timeStringToMinutes(event["Fin du cours"]);
           let duration = (end - begin) * parseInt(event["Nombre de semaine"]) / 60;
