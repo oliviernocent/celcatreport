@@ -151,6 +151,7 @@
   </footer>
 
   <script>
+    let semesterNumber = -1;
     let courseData, timetableData;
     let report = "";
 
@@ -344,6 +345,15 @@
     }
 
     function computeStats(course) {
+      if (Math.floor(course["Code EC"]/100) != semesterNumber) {
+        report += `
+    <hr class="mt-6">    
+    <h3 class="title is-3">Semestre ${Math.floor(course["Code EC"]/100)}</h1>
+        `;
+
+        semesterNumber = Math.floor(course["Code EC"]/100);
+      }
+
       report += `
     <div class="card">
       <header class="card-header">
