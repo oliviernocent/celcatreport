@@ -8,10 +8,10 @@ AEA1152;152;VEP MSP : Vérification des Exigences Préalables à la Mise en Situ
 AEA6151;151;Enseigner le savoir nager (7-12 ans) et les techniques de nage - niveau 1 - EN C6;2;0;0;11;1;0;0
 AEA6152;152;Gérer la surveillence, l'hygiène de l'eau et de l'air sur les lieux de baignade - UE SSMA C2 et C4;2;0;0;17;1;12;1
 AEA6153;153;VEP MSP : Vérification des Exigences Préalables à la Mise en Situation Pédagogique;2;0;0;11;1;6;1
-AEA1211;211;Stage professionnel (150 heures minimum);7;0;0;20;1;15;2
+AEA1211;211;Stage professionnel (150 heures minimum);7;0;0;20;1;15;1
 AEA1221;221;Analyse des caractéristiques psychologiques des publics ;7;0;0;45;1;0;0
 AEA1231;231;Direction et coordination d'un accueil tout public à visée d'activités physiques et culturelles (50 heures minimum sur 10 jours minimum) ;6;0;0;35;1;0;0
-AEA1241;241;Expression et communication professionnelle - Master Classes - Anglais;4;6;0;35;1;0;0
+AEA1241;241;Expression et communication professionnelle - Master Classes - Anglais;4;6;1;35;1;0;0
 AEA1251;251;Initiation théorique et pratique;6;0;0;50;1;0;0
 AEA6251;251;Enseigner le savoir nager (7-12 ans) et les techniques de nage - niveau 2 - EN C6;2;0;0;10;1;0;0
 AEA6252;252;Concevoir et organiser un cycle d'apprentissage à visée d'amélioration de la motricité aquatique en conditions d'éducation et d'entraînement - Niveau 1;2;0;0;13;1;6;1
@@ -23,8 +23,8 @@ AEA1341;341;Expression et communication professionnelle - Outils informatiques e
 AEA1351;351;Approfondissement théorique et pratique;6;0;0;50;1;0;0
 AEA6351;351;Concevoir la sécurité sur un lieu de baignade - UE SSMA C1;3;0;0;23;1;15;1
 AEA6352;352;Enseigner le savoir nager (7 - 12 ans) et les techniques de nages Niveau 3 - EN C6;3;0;0;12;1;0;0
-AEA1411;411;Stage pédagogique (120 heures minimum) ;7;0;0;20;1;10;2
-AEA1421;421;Projet d'animation (80 heures minimum);7;0;0;20;1;10;2
+AEA1411;411;Stage pédagogique (120 heures minimum) ;7;0;0;20;1;10;1
+AEA1421;421;Projet d'animation (80 heures minimum);7;0;0;20;1;10;1
 AEA1431;431;Direction et coordination d'un accueil tout public à visée d'activités physiques et culturelles (50 heures minimum sur 10 jours minimum);4;0;0;30;1;0;0
 AEA1441;441;Expression et communication professionnelle - Master Classes - Anglais;3;6;0;25;1;0;0
 AEA1451;451;Perfectionnement théorique et pratique;6;0;0;50;1;0;0
