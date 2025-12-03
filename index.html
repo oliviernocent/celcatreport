@@ -219,11 +219,11 @@
       let knownIds = [];
       let i = 0;
       while (i < timetableData.length) {
-        if (knownIds.find((element) => (element.id == timetableData[i]["Id event"]) && 
-                                       (element.date == timetableData[i]["date"]) &&
-                                       (element["Début  du cours"] == timetableData[i]["Début  du cours"]) &&
-                                       (element["Fin du cours"] == timetableData[i]["Fin du cours"])
-                                      ) == undefined) {
+        if (knownIds.find((element) => (element.id == timetableData[i]["Id event"]) &&
+          (element.date == timetableData[i]["date"]) &&
+          (element["Début  du cours"] == timetableData[i]["Début  du cours"]) &&
+          (element["Fin du cours"] == timetableData[i]["Fin du cours"])
+        ) == undefined) {
           knownIds.push({
             "id": timetableData[i]["Id event"],
             "date": timetableData[i]["date"],
@@ -257,12 +257,7 @@
       return hours * 60 + minutes;
     }
 
-    function findEventsBy(courseId, courseCategory) {
-      let result = {
-        "total": 0,
-        "teacher": {}
-      };
-
+    function findEventsBy(courseId, courseCategory, result) {
       for (let event of timetableData) {
         if ((event["code matières"] !== undefined) && (event["code matières"].indexOf(courseId) != -1) && (event["Catégorie"] == courseCategory) && (event["Supendu"] == "N")) {
           let begin = timeStringToMinutes(event["Début  du cours"]);
@@ -286,7 +281,14 @@
     }
 
     function addStats(courseId, courseCategory, total) {
-      let courseStats = findEventsBy(courseId, courseCategory);
+      let courseStats = {
+        "total": 0,
+        "teacher": {}
+      };
+
+      findEventsBy(courseId, courseCategory, courseStats);
+      if (courseCategory == "[TD]")
+        findEventsBy(courseId, "Travail en groupe", courseStats);
 
       let color;
       if (courseStats.total > total)
@@ -345,13 +347,13 @@
     }
 
     function computeStats(course) {
-      if (Math.floor(course["Code EC"]/100) != semesterNumber) {
+      if (Math.floor(course["Code EC"] / 100) != semesterNumber) {
         report += `
     <hr class="mt-6">    
-    <h3 class="title is-3">Semestre ${Math.floor(course["Code EC"]/100)}</h1>
+    <h3 class="title is-3">Semestre ${Math.floor(course["Code EC"] / 100)}</h1>
         `;
 
-        semesterNumber = Math.floor(course["Code EC"]/100);
+        semesterNumber = Math.floor(course["Code EC"] / 100);
       }
 
       report += `
