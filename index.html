@@ -351,6 +351,8 @@
     }
 
     function computeStats(course) {
+      console.log(course);
+      
       if (Math.floor(course["Code EC"] / 100) != semesterNumber) {
         report += `
     <hr class="mt-6">    
